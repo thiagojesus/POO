@@ -7,6 +7,7 @@
 
 #ifndef APOLICE_H
 #define	APOLICE_H
+#include "Data.h"
 
 class Apolice {
 public:
@@ -15,7 +16,7 @@ public:
     virtual ~Apolice();
 private:
     int num;
-    std::string vigencia;
+    Data vigencia;
     enum Classificacao {classe1, classe2};
 };
 
