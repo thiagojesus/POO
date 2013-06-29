@@ -11,6 +11,16 @@
 #include <string>
 
 Cliente::Cliente() {
+    std::cin.clear(); //esse método e o de baixo servem para limpar o buffer de entrada
+    std::cin.ignore(INT_MAX,'\n');
+    std::cout<<"Nome do cliente: ";
+    getline(std::cin,this->nome);
+    std::cout<<"Telefone: ";
+    getline(std::cin,this->telefone);
+    std::cout<<"Endereco: ";
+    getline(std::cin,this->endereco);
+    this->napa = 0;
+    inicLista(&(this->apolices));
 }
 
 Cliente::Cliente(const Cliente& orig) {
@@ -51,6 +61,8 @@ int Cliente::carregar(listacli* p_l){
         myfile>>ncli;
         for(i=0;i<ncli;i++){
             Cliente *aux = new Cliente();
+            myfile.clear();
+            myfile.ignore(INT_MAX,'\n');
             getline(myfile,aux->nome);
             getline(myfile,aux->endereco);
             getline(myfile,aux->telefone);

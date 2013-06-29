@@ -17,6 +17,7 @@ using namespace std;
  */
 int main(int argc, char** argv) {
     Cliente::listacli lcliente; //lista de clientes
+    Cliente *c; //ponteiro para instanciar os clientes
     int ncli; //numero de clientes
     int op; //opcao do menu
     inicLista(&lcliente);
@@ -32,7 +33,9 @@ int main(int argc, char** argv) {
                 cout<<"\n Sua Opcao:";
                 cin>>op;
                 switch(op){
-                    case 1: //TODO: criar um cliente, suas apolices, veiculos e condutores
+                    case 1: c = new Cliente();
+                            cadastrar(&lcliente,c);
+                            ncli++;
                         break;
                     case 2: //TODO: buscar cliente, criar apolice, adicionar veiculos e condutores
                         break;
