@@ -24,12 +24,51 @@ Terceiro::Terceiro() {
     std::getline(std::cin,this->seguradora);
     std::cout<<"\nIdade: ";
     std::cin>>idade;
- 
 }
 
 Terceiro::Terceiro(const Terceiro& orig) {
 }
 
 Terceiro::~Terceiro() {
+}
+
+void Terceiro::SetIdade(int idade) {
+    this->idade = idade;
+}
+
+int Terceiro::GetIdade() const {
+    return idade;
+}
+
+void Terceiro::SetEndereco(std::string endereco) {
+    this->endereco = endereco;
+}
+
+std::string Terceiro::GetEndereco() const {
+    return endereco;
+}
+
+void Terceiro::SetTelefone(std::string telefone) {
+    this->telefone = telefone;
+}
+
+std::string Terceiro::GetTelefone() const {
+    return telefone;
+}
+
+void Terceiro::SetNome(std::string nome) {
+    this->nome = nome;
+}
+
+std::string Terceiro::GetNome() const {
+    return nome;
+}
+
+void Terceiro::SetSeguradora(std::string seguradora) {
+    this->seguradora = seguradora;
+}
+
+std::string Terceiro::GetSeguradora() const {
+    return seguradora;
 }
 

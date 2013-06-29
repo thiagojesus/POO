@@ -65,3 +65,10 @@ long Apolice::carregar(listanapa* p, int napa, long parou, long* pacart){
     }  
 }
 
+
+void Apolice::novoSinistro(Sinistro::ListaSin *l, Sinistro *s)
+{
+    Sinistro *sa;
+    sa = new Sinistro();
+    cadastrar(l,sa);
+}

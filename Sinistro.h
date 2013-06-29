@@ -7,6 +7,7 @@
 
 #ifndef SINISTRO_H
 #define	SINISTRO_H
+#include <iostream>
 #include "Data.h"
 #include "BO.h"
 #include "Condutor.h"
@@ -15,6 +16,12 @@
 
 class Sinistro {
 public:
+    typedef Sinistro* ListaSin;
+    typedef Condutor* ListaCond;
+    
+    enum tipoSinistro {incendio, colisao, furto};
+    Sinistro *prox;
+    
     Sinistro();
     Sinistro(const Sinistro& orig);
     
@@ -27,10 +34,9 @@ private:
     Data data;
     std::string local;
     BO bo;
-    enum TipoSinistro {incendio, colisao, furto};
+    int tipoSinistro;
     Condutor *cond; //ponteiro para o condutor expecificado 
     Terceiro envolvido; //dados do envolvido no sinstro.
-    Sinistro *prox;
 };
 
 #endif	/* SINISTRO_H */

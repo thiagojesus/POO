@@ -8,15 +8,22 @@
 #ifndef BO_H
 #define	BO_H
 #include <string>
+#include "Data.h"
 
 class BO {
 public:
     BO();
     BO(const BO& orig);
     virtual ~BO();
+    void SetTipo(std::string tipo);
+    std::string GetTipo() const;
+    void SetNum(int num);
+    int GetNum() const;
+    void SetData(Data data);
+    Data GetData() const;
 private:
     int num;
-    std::string data;
+    Data data;
     std::string tipo;
 };
 

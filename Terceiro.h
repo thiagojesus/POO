@@ -14,6 +14,16 @@ public:
     Terceiro();
     Terceiro(const Terceiro& orig);
     virtual ~Terceiro();
+    void SetIdade(int idade);
+    int GetIdade() const;
+    void SetEndereco(std::string endereco);
+    std::string GetEndereco() const;
+    void SetTelefone(std::string telefone);
+    std::string GetTelefone() const;
+    void SetNome(std::string nome);
+    std::string GetNome() const;
+    void SetSeguradora(std::string seguradora);
+    std::string GetSeguradora() const;
     
 private:
     std::string seguradora;
