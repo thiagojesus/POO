@@ -8,6 +8,7 @@
 #include "Cliente.h"
 #include <fstream>
 #include "Lista.cpp"
+#define INT_MAX 100000
 #include <string>
 
 Cliente::Cliente(){
@@ -18,15 +19,15 @@ Cliente::Cliente(int i) {
     std::cin.clear(); //esse método e o de baixo servem para limpar o buffer de entrada
     std::cin.ignore(INT_MAX,'\n');
     std::cout<<"Nome do cliente: ";
-    getline(std::cin,this->nome);
+    std::getline(std::cin,this->nome);
     std::cout<<"Telefone: ";
-    getline(std::cin,this->telefone);
+    std::getline(std::cin,this->telefone);
     std::cout<<"Endereco: ";
-    getline(std::cin,this->endereco);
+    std::getline(std::cin,this->endereco);
     std::cout<<"CPF: ";
-    getline(std::cin,this->cpf);
+    std::getline(std::cin,this->cpf);
     std::cout<<"Email: ";
-    getline(std::cin,this->email);
+    std::getline(std::cin,this->email);
     this->napa = 0;
     inicLista(&(this->apolices));
 }
@@ -71,11 +72,11 @@ int Cliente::carregar(listacli* p_l){
             Cliente *aux = new Cliente();
             myfile.clear();
             myfile.ignore(INT_MAX,'\n');
-            getline(myfile,aux->nome);
-            getline(myfile,aux->endereco);
-            getline(myfile,aux->telefone);
-            getline(myfile,aux->cpf);
-            getline(myfile,aux->email);
+            std::getline(myfile,aux->nome);
+            std::getline(myfile,aux->endereco);
+            std::getline(myfile,aux->telefone);
+            std::getline(myfile,aux->cpf);
+            std::getline(myfile,aux->email);
             myfile>>aux->napa;
             parou = local;
             local = Apolice::carregar(&(aux->apolices),(aux->napa),parou, &pacart);
@@ -138,7 +139,7 @@ void Cliente::excluir(listacli* l){
     std::cout<<"Nome do cliente: ";
     std::cin.clear(); //esse método e o de baixo servem para limpar o buffer de entrada
     std::cin.ignore(INT_MAX,'\n');
-    getline(std::cin,pesq);
+    std::getline(std::cin,pesq);
     Cliente *aux = *l;
     while(aux != NULL){
         if(aux->nome == pesq){
