@@ -48,7 +48,7 @@ void Cliente::salvar(listacli* p_l, int napa){
     }else{
         myfile<<napa<<"\n";
         for(i=0;i<napa;i++){
-            myfile<<aux->nome<<"\n"<<aux->endereco<<"\n"<<aux->telefone<<"\n"<<aux->napa<<"\n";
+            myfile<<aux->nome<<"\n"<<aux->endereco<<"\n"<<aux->telefone<<"\n"<<aux->cpf<<"\n"<<aux->email<<"\n"<<aux->napa;
             Apolice::salvar(&(aux->apolices), aux->napa);
             aux = aux->prox;
         }
@@ -74,6 +74,8 @@ int Cliente::carregar(listacli* p_l){
             getline(myfile,aux->nome);
             getline(myfile,aux->endereco);
             getline(myfile,aux->telefone);
+            getline(myfile,aux->cpf);
+            getline(myfile,aux->email);
             myfile>>aux->napa;
             parou = local;
             local = Apolice::carregar(&(aux->apolices),(aux->napa),parou, &pacart);
@@ -92,6 +94,7 @@ int Cliente::carregar(listacli* p_l){
     if(remove("apolice.bin") !=0){
        perror("ERRO!"); 
     }
+    return ncli;
 }
 
 void Cliente::imprimir(){
@@ -117,7 +120,7 @@ void Cliente::pesquisar(listacli *l, std::string *nome){
 void Cliente::pesquisar(std::string *tel, listacli* l){
  Cliente *aux = *l;
     while(aux != NULL){
-        if(aux->telefone == *tel){
+        if(aux->cpf == *tel){
             this->nome = aux->nome;
             this->endereco = aux->endereco;
             this->telefone = aux->telefone;

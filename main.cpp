@@ -74,7 +74,7 @@ int main(int argc, char** argv) {
                                 break;
                             case 2: std::cin.clear(); //esse método e o de baixo servem para limpar o buffer de entrada
                                 std::cin.ignore(INT_MAX, '\n');
-                                cout<<"Telefone:";
+                                cout<<"CPF:";
                                 getline(cin, pesquisa);
                                 c = new Cliente();
                                 c->pesquisar(&pesquisa, &lcliente);
