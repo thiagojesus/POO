@@ -46,3 +46,16 @@ Data::Data(int _dia, int _mes, int _ano){
     this->ano = _ano;
 }
 
+const void Data::currentDateTime(){
+    time_t     now = time(0);
+    struct tm  tstruct;
+    char       buf[80];
+    tstruct = *localtime(&now);
+    strftime(buf, sizeof(buf), "%d", &tstruct);
+    this->dia = atoi(buf);
+    strftime(buf, sizeof(buf), "%m", &tstruct);
+    this->mes = atoi(buf);
+    strftime(buf, sizeof(buf), "%Y", &tstruct);
+    this->ano = atoi(buf);
+}
+

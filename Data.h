@@ -7,6 +7,9 @@
 
 #ifndef DATA_H
 #define	DATA_H
+#include <string>
+#include <stdio.h>
+#include <time.h>
 
 class Data {
 public:
@@ -20,6 +23,7 @@ public:
     int GetMes() const;
     void SetDia(int dia);
     int GetDia() const;
+    const void currentDateTime();
 private:
     int dia;
     int mes;
