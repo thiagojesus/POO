@@ -1,6 +1,6 @@
 /* 
  * File:   main.cpp
- * Author: thiagojesus
+ * Author: Lucas, Pedro, Thiago, Vinnicius e Yanick
  *
  * Created on June 28, 2013, 6:16 PM
  */
