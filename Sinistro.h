@@ -7,6 +7,9 @@
 
 #ifndef SINISTRO_H
 #define	SINISTRO_H
+#include "Data.h"
+#include "BO.h"
+#include <string>
 
 class Sinistro {
 public:
@@ -15,8 +18,9 @@ public:
     virtual ~Sinistro();
 private:
     int num;
-    std::string data;
+    Data data;
     std::string local;
+    BO bo;
     enum TipoSinistro {incendio, colisao, furto};
 };
 

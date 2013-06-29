@@ -7,16 +7,24 @@
 
 #ifndef CLIENTE_H
 #define	CLIENTE_H
+#include "Apolice.h"
+#include <string>
 
 class Cliente {
 public:
     Cliente();
     Cliente(const Cliente& orig);
     virtual ~Cliente();
+    typedef Cliente* listacli;
+    Cliente *prox; // variavel para manipulacao da lista
+    static void salvar(listacli *p_l, int napa); //metodo para salvar os dados em um txt
+    static int carregar(listacli *p_l); //metodo para carregar os dados de um txt
 private:
     std::string nome;
     std::string telefone;
     std::string endereco;
+    Apolice::listanapa apolices; //lista ligada com as apolices do cliente
+    int napa; //numero de apolices para recuperar no carregamento
 };
 
 #endif	/* CLIENTE_H */

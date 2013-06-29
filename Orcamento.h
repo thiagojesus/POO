@@ -7,6 +7,7 @@
 
 #ifndef ORCAMENTO_H
 #define	ORCAMENTO_H
+#include <string>
 
 class Orcamento {
 public:

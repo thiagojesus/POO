@@ -7,6 +7,7 @@
 
 #ifndef CONDUTOR_H
 #define	CONDUTOR_H
+#include <string>
 
 class Condutor {
 public:

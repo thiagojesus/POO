@@ -7,6 +7,7 @@
 
 #ifndef BO_H
 #define	BO_H
+#include <string>
 
 class BO {
 public:

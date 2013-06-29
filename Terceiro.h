@@ -7,6 +7,7 @@
 
 #ifndef TERCEIRO_H
 #define	TERCEIRO_H
+#include <string>
 
 class Terceiro {
 public:

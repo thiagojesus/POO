@@ -14,6 +14,12 @@ public:
     Data(int _dia, int _mes, int _ano);
     Data(const Data& orig);
     virtual ~Data();
+    void SetAno(int ano);
+    int GetAno() const;
+    void SetMes(int mes);
+    int GetMes() const;
+    void SetDia(int dia);
+    int GetDia() const;
 private:
     int dia;
     int mes;

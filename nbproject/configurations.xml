@@ -8,6 +8,7 @@
       <itemPath>BO.h</itemPath>
       <itemPath>Cliente.h</itemPath>
       <itemPath>Condutor.h</itemPath>
+      <itemPath>Data.h</itemPath>
       <itemPath>Orcamento.h</itemPath>
       <itemPath>Sinistro.h</itemPath>
       <itemPath>Terceiro.h</itemPath>
@@ -24,6 +25,8 @@
       <itemPath>BO.cpp</itemPath>
       <itemPath>Cliente.cpp</itemPath>
       <itemPath>Condutor.cpp</itemPath>
+      <itemPath>Data.cpp</itemPath>
+      <itemPath>Lista.cpp</itemPath>
       <itemPath>Orcamento.cpp</itemPath>
       <itemPath>Sinistro.cpp</itemPath>
       <itemPath>Terceiro.cpp</itemPath>
@@ -66,6 +69,12 @@
       <item path="Condutor.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Condutor.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Data.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Data.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Lista.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Orcamento.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -120,6 +129,12 @@
       <item path="Condutor.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Condutor.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Data.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Data.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Lista.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Orcamento.cpp" ex="false" tool="1" flavor2="0">
       </item>

@@ -39,6 +39,8 @@ OBJECTFILES= \
 	${OBJECTDIR}/BO.o \
 	${OBJECTDIR}/Cliente.o \
 	${OBJECTDIR}/Condutor.o \
+	${OBJECTDIR}/Data.o \
+	${OBJECTDIR}/Lista.o \
 	${OBJECTDIR}/Orcamento.o \
 	${OBJECTDIR}/Sinistro.o \
 	${OBJECTDIR}/Terceiro.o \
@@ -89,6 +91,16 @@ ${OBJECTDIR}/Condutor.o: Condutor.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} $@.d
 	$(COMPILE.cc) -g -MMD -MP -MF $@.d -o ${OBJECTDIR}/Condutor.o Condutor.cpp
+
+${OBJECTDIR}/Data.o: Data.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} $@.d
+	$(COMPILE.cc) -g -MMD -MP -MF $@.d -o ${OBJECTDIR}/Data.o Data.cpp
+
+${OBJECTDIR}/Lista.o: Lista.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} $@.d
+	$(COMPILE.cc) -g -MMD -MP -MF $@.d -o ${OBJECTDIR}/Lista.o Lista.cpp
 
 ${OBJECTDIR}/Orcamento.o: Orcamento.cpp 
 	${MKDIR} -p ${OBJECTDIR}

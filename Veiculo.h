@@ -7,6 +7,7 @@
 
 #ifndef VEICULO_H
 #define	VEICULO_H
+#include <string>
 
 class Veiculo {
 public:
