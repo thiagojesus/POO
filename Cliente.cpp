@@ -10,7 +10,11 @@
 #include "Lista.cpp"
 #include <string>
 
-Cliente::Cliente() {
+Cliente::Cliente(){
+    
+}
+
+Cliente::Cliente(int i) {
     std::cin.clear(); //esse método e o de baixo servem para limpar o buffer de entrada
     std::cin.ignore(INT_MAX,'\n');
     std::cout<<"Nome do cliente: ";
@@ -84,5 +88,37 @@ int Cliente::carregar(listacli* p_l){
     if(remove("apolice.bin") !=0){
        perror("ERRO!"); 
     }
+}
+
+void Cliente::imprimir(){
+    std::cout<<"nome: "<<this->nome<<"\nendereco: "<<this->endereco<<"\ntelefone: "<<this->telefone<<std::endl;
+}
+
+void Cliente::pesquisar(listacli *l, std::string *nome){
+    Cliente *aux = *l;
+    while(aux != NULL){
+        if(aux->nome == *nome){
+            this->nome = aux->nome;
+            this->endereco = aux->endereco;
+            this->telefone = aux->telefone;
+            this->apolices = aux->apolices;
+            *nome = "0";
+        }
+        aux = aux->prox;
+    }
+}
+
+void Cliente::pesquisar(std::string *tel, listacli* l){
+ Cliente *aux = *l;
+    while(aux != NULL){
+        if(aux->telefone == *tel){
+            this->nome = aux->nome;
+            this->endereco = aux->endereco;
+            this->telefone = aux->telefone;
+            this->apolices = aux->apolices;
+            *tel = "0";
+        }
+        aux = aux->prox;
+    }    
 }
 

@@ -13,13 +13,16 @@
 class Cliente {
 public:
     Cliente();
+    Cliente(int i);
     Cliente(const Cliente& orig);
     virtual ~Cliente();
     typedef Cliente* listacli;
     Cliente *prox; // variavel para manipulacao da lista
     static void salvar(listacli *p_l, int napa); //metodo para salvar os dados em um .bin
     static int carregar(listacli *p_l); //metodo para carregar os dados de um .bin
-    Cliente* pesquisar(); //metodo que devolve um ponteiro para o registro pesquisado ou nulo caso nao encontrado
+    void imprimir(); //imprime um cliente
+    void pesquisar(listacli *l, std::string *nome); //metodo que busca um cliente por nome
+    void pesquisar(std::string *tel, listacli *l); //metodo que busca um cliente por telefone
 private:
     std::string nome;
     std::string telefone;
