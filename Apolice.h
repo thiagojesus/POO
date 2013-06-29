@@ -9,6 +9,7 @@
 #define	APOLICE_H
 #include "Data.h"
 #include "Sinistro.h"
+#include "Condutor.h"
 
 class Apolice {
 public:
@@ -23,8 +24,11 @@ public:
 private:
     int num;
     Data vigencia;
+    Veiculo v;
+    bool situacaoPagto;//TRUE para em dia
     enum Classificacao {classe1, classe2};
     Sinistro::ListaSin lSin;
+    Condutor::ListaCond lCond;    
 };
 
 #endif	/* APOLICE_H */

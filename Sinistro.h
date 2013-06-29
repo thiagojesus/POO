@@ -17,7 +17,6 @@
 class Sinistro {
 public:
     typedef Sinistro* ListaSin;
-    typedef Condutor* ListaCond;
     
     enum tipoSinistro {incendio, colisao, furto};
     Sinistro *prox;

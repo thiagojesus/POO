@@ -13,13 +13,15 @@ class Veiculo {
 public:
     Veiculo();
     Veiculo(const Veiculo& orig);
+    enum TipoVeiculo {passeio, transporte};
+    enum Marca {fiat, vw, ford, honda};
     virtual ~Veiculo();
 private:
     std::string placa;
     int ano;
     std::string RENAVAM;
-    enum TipoVeiculo {passeio, transporte};
-    enum Marca {fiat, vw, ford, honda};
+    int tipo;
+    int marca;
 };
 
 #endif	/* VEICULO_H */
