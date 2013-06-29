@@ -23,6 +23,10 @@ Cliente::Cliente(int i) {
     getline(std::cin,this->telefone);
     std::cout<<"Endereco: ";
     getline(std::cin,this->endereco);
+    std::cout<<"CPF: ";
+    getline(std::cin,this->cpf);
+    std::cout<<"Email: ";
+    getline(std::cin,this->email);
     this->napa = 0;
     inicLista(&(this->apolices));
 }
@@ -91,7 +95,7 @@ int Cliente::carregar(listacli* p_l){
 }
 
 void Cliente::imprimir(){
-    std::cout<<"nome: "<<this->nome<<"\nendereco: "<<this->endereco<<"\ntelefone: "<<this->telefone<<std::endl;
+    std::cout<<"nome: "<<this->nome<<"\nendereco: "<<this->endereco<<"\ntelefone: "<<this->telefone<<"\ncpf: "<<this->cpf<<"\nemail: "<<this->email<<std::endl;
 }
 
 void Cliente::pesquisar(listacli *l, std::string *nome){
@@ -102,6 +106,8 @@ void Cliente::pesquisar(listacli *l, std::string *nome){
             this->endereco = aux->endereco;
             this->telefone = aux->telefone;
             this->apolices = aux->apolices;
+            this->cpf = aux->cpf;
+            this->email = aux->email;
             *nome = "0";
         }
         aux = aux->prox;
@@ -116,9 +122,26 @@ void Cliente::pesquisar(std::string *tel, listacli* l){
             this->endereco = aux->endereco;
             this->telefone = aux->telefone;
             this->apolices = aux->apolices;
+            this->cpf = aux->cpf;
+            this->email = aux->email;
             *tel = "0";
         }
         aux = aux->prox;
     }    
+}
+
+void Cliente::excluir(listacli* l){
+    std::string pesq;
+    std::cout<<"Nome do cliente: ";
+    std::cin.clear(); //esse método e o de baixo servem para limpar o buffer de entrada
+    std::cin.ignore(INT_MAX,'\n');
+    getline(std::cin,pesq);
+    Cliente *aux = *l;
+    while(aux != NULL){
+        if(aux->nome == pesq){
+            deletar(l,aux);
+        }
+        aux = aux->prox;
+    }
 }
 

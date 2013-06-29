@@ -60,26 +60,28 @@ int main(int argc, char** argv) {
                         switch (op) {
                             case 1: std::cin.clear(); //esse método e o de baixo servem para limpar o buffer de entrada
                                 std::cin.ignore(INT_MAX, '\n');
+                                cout<<"Nome:";
                                 getline(cin, pesquisa);
                                 c = new Cliente();
                                 c->pesquisar(&lcliente, &pesquisa);
                                 if(pesquisa == "0"){
                                     c->imprimir();
                                 }else{
-                                    cout<<"Registro nao encontrado";
+                                    cout<<"Registro nao encontrado\n";
                                 }
                                 
                                 c->~Cliente();
                                 break;
                             case 2: std::cin.clear(); //esse método e o de baixo servem para limpar o buffer de entrada
                                 std::cin.ignore(INT_MAX, '\n');
+                                cout<<"Telefone:";
                                 getline(cin, pesquisa);
                                 c = new Cliente();
                                 c->pesquisar(&pesquisa, &lcliente);
                                 if(pesquisa == "0"){
                                     c->imprimir();
                                 }else{
-                                    cout<<"Registro nao encontrado";
+                                    cout<<"Registro nao encontrado\n";
                                 }
                                 
                                 c->~Cliente();
@@ -114,7 +116,7 @@ int main(int argc, char** argv) {
                 cout << "\n Sua Opcao:";
                 cin >> op;
                 switch (op) {
-                    case 1: //TODO: remover um cliente, suas apolices, veiculos e condutores
+                    case 1: Cliente::excluir(&lcliente);
                         break;
                     case 2: //TODO: remover cliente, criar apolice, adicionar veiculos e condutores
                         break;
