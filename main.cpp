@@ -9,6 +9,7 @@
 #include "Lista.cpp"
 #include "Cliente.h"
 #include "Apolice.h"
+#define INT_MAX 100000
 
 using namespace std;
 
