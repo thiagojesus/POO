@@ -48,6 +48,49 @@ int main(int argc, char** argv) {
                 cout<<"1- Cliente\n2- Apolice\n3- Sinistro\n4- Condutor\n5- Voltar ao menu principal";
                 cout<<"\n Sua Opcao:";
                 cin>>op;
+                switch(op){
+                    case 1: //TODO: pesquisar cliente
+                        break;
+                    case 2: //TODO: pesquisar apolice
+                        break;
+                    case 3: //TODO: pesquisar sinistro
+                        break;
+                    case 4: //TODO: pesquisar condutor
+                        break;
+                    case 5: op=0;
+                        break;
+                }
+            break;
+        case 3: cout<<"Vendas\nDigite a opcao desejada:\n";
+                cout<<"1- Orcamento\n2- Fechar venda\n3- Voltar ao menu principal";
+                cout<<"\n Sua Opcao:";
+                cin>>op;
+                switch(op){
+                    case 1: //orcar o seguro
+                        break;
+                    case 2: //gravar a apolice
+                        break;
+                    case 3: op=0;
+                        break;
+                }
+            break;
+        case 4: cout<<"Exclusao\nDigite a opcao desejada:\n";
+                cout<<"1- Cliente\n2- Apolice\n3- Sinistro\n4- Condutor\n5- Voltar ao menu principal";
+                cout<<"\n Sua Opcao:";
+                cin>>op;
+                switch(op){
+                    case 1: //TODO: remover um cliente, suas apolices, veiculos e condutores
+                        break;
+                    case 2: //TODO: remover cliente, criar apolice, adicionar veiculos e condutores
+                        break;
+                    case 3: //TODO: remover a apolice do cliente e criar um sinistro
+                        break;
+                    case 4: //TODO: remover a apolice do cliente e criar um veiculo
+                        break;
+                    case 5: op=0;
+                        break;
+                }
+            break;
         case 5:
             if(ncli !=0){
                 Cliente::salvar(&lcliente,ncli);
