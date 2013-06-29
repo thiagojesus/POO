@@ -14,6 +14,7 @@ public:
     Terceiro();
     Terceiro(const Terceiro& orig);
     virtual ~Terceiro();
+    
 private:
     std::string seguradora;
     std::string nome;
