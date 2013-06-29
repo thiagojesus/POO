@@ -19,6 +19,7 @@ using namespace std;
 int main(int argc, char** argv) {
     Cliente::listacli lcliente; //lista de clientes
     Cliente *c; //ponteiro para instanciar os clientes
+    Apolice *a; //ponteiro para instanciar as apolices
     int ncli; //numero de clientes
     int op; //opcao do menu
     string pesquisa; //string para guardar o termo de pesquisa
@@ -39,7 +40,17 @@ int main(int argc, char** argv) {
                         cadastrar(&lcliente, c);
                         ncli++;
                         break;
-                    case 2: //TODO: buscar cliente, criar apolice, adicionar veiculos e condutores
+                    case 2: c = new Cliente();
+                            std::cin.clear(); //esse método e o de baixo servem para limpar o buffer de entrada
+                            std::cin.ignore(INT_MAX, '\n');
+                            cout<<"Nome do cliente:";
+                            getline(cin,pesquisa);
+                            c->pesquisar(&lcliente,&pesquisa);
+                            if(pesquisa == "0"){
+                                a = new Apolice();
+                                Apolice *b = c->getApolices();
+                                cadastrar(&b,a);
+                            }
                         break;
                     case 3: //TODO: buscar a apolice do cliente e criar um sinistro
                         break;

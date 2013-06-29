@@ -20,13 +20,13 @@ Cliente::Cliente(int i) {
     std::cin.ignore(INT_MAX,'\n');
     std::cout<<"Nome do cliente: ";
     std::getline(std::cin,this->nome);
-    std::cout<<"Telefone: ";
+    std::cout<<"\nTelefone: ";
     std::getline(std::cin,this->telefone);
-    std::cout<<"Endereco: ";
+    std::cout<<"\nEndereco: ";
     std::getline(std::cin,this->endereco);
-    std::cout<<"CPF: ";
+    std::cout<<"\nCPF: ";
     std::getline(std::cin,this->cpf);
-    std::cout<<"Email: ";
+    std::cout<<"\nEmail: ";
     std::getline(std::cin,this->email);
     this->napa = 0;
     inicLista(&(this->apolices));
@@ -147,5 +147,13 @@ void Cliente::excluir(listacli* l){
         }
         aux = aux->prox;
     }
+}
+
+void Cliente::setApolices(Apolice::listanapa apolices) {
+    this->apolices = apolices;
+}
+
+Apolice::listanapa Cliente::getApolices() const {
+    return apolices;
 }
 

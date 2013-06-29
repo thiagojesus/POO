@@ -23,7 +23,9 @@ public:
     void imprimir(); //imprime um cliente
     void pesquisar(listacli *l, std::string *nome); //metodo que busca um cliente por nome
     void pesquisar(std::string *tel, listacli *l); //metodo que busca um cliente por telefone
-    static void excluir(listacli *l); //metodo que exclui um cliente da lista
+    static void excluir(listacli *l);
+    void setApolices(Apolice::listanapa apolices);
+    Apolice::listanapa getApolices() const; //metodo que exclui um cliente da lista
 private:
     std::string nome;
     std::string telefone;

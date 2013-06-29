@@ -8,16 +8,20 @@
 #ifndef CONDUTOR_H
 #define	CONDUTOR_H
 #include <string>
+#include<iostream>
+#define INT_MAX 100000
+
 
 class Condutor {
 public:
     typedef Condutor* ListaCond ;
     Condutor *prox;
     Condutor();
+    Condutor(int i);
     Condutor(const Condutor& orig);
     virtual ~Condutor();
     
-    Condutor *bucar(std::string nome, ListaCond lCond);
+    Condutor *bucar(std::string *nome, ListaCond *lCond);
     
     void SetIdade(int idade);
     int GetIdade() const;
@@ -30,6 +34,10 @@ public:
     
     void SetNome(std::string nome);
     std::string GetNome() const;
+    
+    void imprimir();
+    void pesquisar(ListaCond *l, std::string *nome); //metodo que busca um cliente por nome
+   static void excluir(ListaCond *l); //metodo que exclui um cliente da lista
     
 private:
     std::string nome;

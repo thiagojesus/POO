@@ -11,6 +11,7 @@
 #include <string>
 
 Apolice::Apolice() {
+    
 }
 
 Apolice::Apolice(const Apolice& orig) {

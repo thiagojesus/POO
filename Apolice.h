@@ -10,6 +10,7 @@
 #include "Data.h"
 #include "Sinistro.h"
 #include "Condutor.h"
+#include "Veiculo.h"
 
 class Apolice {
 public:
