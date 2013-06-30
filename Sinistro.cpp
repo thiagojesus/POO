@@ -89,6 +89,80 @@ Sinistro::Sinistro() {
 Sinistro::Sinistro(const Sinistro& orig) {
 }
 
+Sinistro::Sinistro(int i){
+    
+}
+
 Sinistro::~Sinistro() {
+}
+
+void Sinistro::salvar(ListaSin* p, int nsin){
+    std::fstream myfile;
+    Sinistro *aux;
+    int cart, i;
+    aux = *p;
+    myfile.open("sinistro.bin",std::ios::out|std::ios::app|std::ios::binary);
+    if(!myfile){
+        std::cout<<"ERRO!";
+    }else{
+        //myfile.seekg(parou);
+        for(i=0;i<nsin;i++){
+            myfile<<aux->id<<"\n"<<aux->data.GetDia()<<"\n"<<aux->data.GetMes()<<"\n"<<aux->data.GetAno()<<"\n"<<aux->local<<"\n"<<aux->bo.GetTipo()<<"\n"<<aux->bo.GetNum()<<"\n"<<aux->bo.GetData().GetDia()<<"\n"<<aux->bo.GetData().GetMes()<<"\n"<<aux->bo.GetData().GetAno()<<"\n"<<aux->tipoSinistro<<"\n"<<aux->envolvido.GetNome()<<"\n"<<aux->envolvido.GetSeguradora()<<"\n"<<aux->envolvido.GetEndereco()<<"\n"<<aux->envolvido.GetTelefone()<<"\n"<<aux->envolvido.GetIdade()<<"\n";
+            aux = aux->prox;
+        }
+        std::cout<<"arquivo criado com sucesso\n";
+        myfile.close();
+  
+    }
+}
+
+void Sinistro::carregar(ListaSin* p, int nsin, long parou){
+    std::fstream myfile;
+    std::string tipo;
+    int i=0, dia, mes, ano, bnum;
+    long esta=0, carte=0, sin=0, cond=0;
+    myfile.open("sinistro.bin",std::ios::in|std::ios::binary);
+    if(!myfile){
+        std::cout<<"ERRO!";
+    }else{
+        myfile.seekg(parou);
+        for(i =0; i<nsin;i++){
+            Sinistro *aux = new Sinistro(1);
+            myfile>>aux->id;
+            myfile>>dia>>mes>>ano;
+            aux->data.SetDia(dia);
+            aux->data.SetMes(mes);
+            aux->data.SetAno(ano);
+            myfile.clear(); //esse método e o de baixo servem para limpar o buffer de entrada
+            myfile.ignore(INT_MAX,'\n');
+            getline(myfile,aux->local);
+            getline(myfile,tipo);
+            aux->bo.SetTipo(tipo);
+            myfile>>bnum;
+            aux->bo.SetNum(bnum);
+            myfile>>dia>>mes>>ano;
+            Data d = new Data(dia,mes,ano);
+            aux->bo.SetData(d);
+            myfile>>aux->tipoSinistro;
+            myfile.clear(); //esse método e o de baixo servem para limpar o buffer de entrada
+            myfile.ignore(INT_MAX,'\n');
+            getline(myfile,tipo);
+            aux->envolvido.SetNome(tipo);
+            getline(myfile,tipo);
+            aux->envolvido.SetSeguradora(tipo);
+            getline(myfile,tipo);
+            aux->envolvido.SetEndereco(tipo);
+            getline(myfile,tipo);
+            aux->envolvido.SetTelefone(tipo);
+            myfile>>bnum;
+            aux->envolvido.SetIdade(bnum);
+            cadastrar(p,aux);
+            }
+        //std::cout<<"dados carregados\n";   
+            
+        esta = myfile.tellg();
+        myfile.close();
+        return esta;
+    }  
 }
 

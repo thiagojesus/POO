@@ -23,11 +23,13 @@ public:
     
     Sinistro();
     Sinistro(const Sinistro& orig);
-    
+    Sinistro(int i);
     void incluirBO(BO *);
     void incluirTerceiro(Terceiro *);
     Sinistro* buscar(std::string &nome);
     virtual ~Sinistro();
+    static void salvar(ListaSin *p, int nsin); //metodo que salva os dados em um txt
+    static long carregar(ListaSin *p, int nsin, long parou); //metodo que recupera os dados de um txt
 private:
     int id;
     Data data;
