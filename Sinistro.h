@@ -13,6 +13,7 @@
 #include "Condutor.h"
 #include "Terceiro.h"
 #include <string>
+#include <fstream>
 
 class Sinistro {
 public:
@@ -29,7 +30,7 @@ public:
     Sinistro* buscar(std::string &nome);
     virtual ~Sinistro();
     static void salvar(ListaSin *p, int nsin); //metodo que salva os dados em um txt
-    static long carregar(ListaSin *p, int nsin, long parou); //metodo que recupera os dados de um txt
+    static long carregar(ListaSin* p, int nsin, long parou); //metodo que recupera os dados de um txt
 private:
     int id;
     Data data;

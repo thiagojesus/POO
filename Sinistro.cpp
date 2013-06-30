@@ -6,6 +6,7 @@
  */
 
 #include "Sinistro.h"
+#include "Lista.cpp"
 #define INT_MAX 100000
 
 Sinistro::Sinistro() {
@@ -101,7 +102,7 @@ void Sinistro::salvar(ListaSin* p, int nsin){
     Sinistro *aux;
     int cart, i;
     aux = *p;
-    myfile.open("sinistro.bin",std::ios::out|std::ios::app|std::ios::binary);
+    myfile.open("sinistro.txt",std::ios::out|std::ios::app);
     if(!myfile){
         std::cout<<"ERRO!";
     }else{
@@ -116,12 +117,13 @@ void Sinistro::salvar(ListaSin* p, int nsin){
     }
 }
 
-void Sinistro::carregar(ListaSin* p, int nsin, long parou){
+long Sinistro::carregar(ListaSin* p, int nsin, long parou){
     std::fstream myfile;
     std::string tipo;
     int i=0, dia, mes, ano, bnum;
+    Data *d;
     long esta=0, carte=0, sin=0, cond=0;
-    myfile.open("sinistro.bin",std::ios::in|std::ios::binary);
+    myfile.open("sinistro.txt",std::ios::in);
     if(!myfile){
         std::cout<<"ERRO!";
     }else{
@@ -141,8 +143,8 @@ void Sinistro::carregar(ListaSin* p, int nsin, long parou){
             myfile>>bnum;
             aux->bo.SetNum(bnum);
             myfile>>dia>>mes>>ano;
-            Data d = new Data(dia,mes,ano);
-            aux->bo.SetData(d);
+            d = new Data(dia,mes,ano);
+            aux->bo.SetData(*d);
             myfile>>aux->tipoSinistro;
             myfile.clear(); //esse método e o de baixo servem para limpar o buffer de entrada
             myfile.ignore(INT_MAX,'\n');

@@ -14,10 +14,21 @@
 class Veiculo {
 public:
     Veiculo();
+    Veiculo(int i);
     Veiculo(const Veiculo& orig);
     enum TipoVeiculo {passeio, transporte};
     virtual ~Veiculo();
     void imprimir();
+    void setMarca(std::string marca);
+    std::string getMarca() const;
+    void setTipo(int tipo);
+    int getTipo() const;
+    void setRENAVAM(std::string RENAVAM);
+    std::string getRENAVAM() const;
+    void setAno(int ano);
+    int getAno() const;
+    void setPlaca(std::string placa);
+    std::string getPlaca() const;
 private:
     std::string placa;
     int ano;

@@ -40,16 +40,15 @@ int main(int argc, char** argv) {
                         cadastrar(&lcliente, c);
                         ncli++;
                         break;
-                    case 2: c = new Cliente();
+                    case 2: 
                             std::cin.clear(); //esse método e o de baixo servem para limpar o buffer de entrada
                             std::cin.ignore(INT_MAX, '\n');
                             cout<<"Nome do cliente:";
                             getline(cin,pesquisa);
-                            c->pesquisar(&lcliente,&pesquisa);
+                            c = Cliente::retPon(&lcliente,&pesquisa);
                             if(pesquisa == "0"){
                                 a = new Apolice();
-                                Apolice *b = c->getApolices();
-                                cadastrar(&b,a);
+                                c->novAp(a);
                             }
                         break;
                     case 3: //TODO: buscar a apolice do cliente e criar um sinistro

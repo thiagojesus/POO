@@ -28,6 +28,10 @@ Veiculo::Veiculo() {
     
 }
 
+Veiculo::Veiculo(int i){
+    
+}
+
 Veiculo::Veiculo(const Veiculo& orig) {
 }
 
@@ -36,4 +40,44 @@ Veiculo::~Veiculo() {
 
 void Veiculo::imprimir(){
     std::cout<<"Placa: "<<this->placa<<"\nRENAVAM: "<<this->RENAVAM<<"\nAno: "<<this->ano<<"\nTipo: "<<this->tipo<<"\nMarca: "<<this->marca<<std::endl;
+}
+
+void Veiculo::setMarca(std::string marca) {
+    this->marca = marca;
+}
+
+std::string Veiculo::getMarca() const {
+    return marca;
+}
+
+void Veiculo::setTipo(int tipo) {
+    this->tipo = tipo;
+}
+
+int Veiculo::getTipo() const {
+    return tipo;
+}
+
+void Veiculo::setRENAVAM(std::string RENAVAM) {
+    this->RENAVAM = RENAVAM;
+}
+
+std::string Veiculo::getRENAVAM() const {
+    return RENAVAM;
+}
+
+void Veiculo::setAno(int ano) {
+    this->ano = ano;
+}
+
+int Veiculo::getAno() const {
+    return ano;
+}
+
+void Veiculo::setPlaca(std::string placa) {
+    this->placa = placa;
+}
+
+std::string Veiculo::getPlaca() const {
+    return placa;
 }

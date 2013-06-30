@@ -12,7 +12,7 @@
 #include <string>
 
 Cliente::Cliente(){
-    
+    inicLista(&(this->apolices));
 }
 
 Cliente::Cliente(int i) {
@@ -38,18 +38,18 @@ Cliente::Cliente(const Cliente& orig) {
 Cliente::~Cliente() {
 }
 
-void Cliente::salvar(listacli* p_l, int napa){
+void Cliente::salvar(listacli* p_l, int ncli){
     std::fstream myfile;
     Cliente *aux;
     int i;
     aux = *p_l;
-    myfile.open("cliente.bin",std::ios::out|std::ios::binary|std::ios::trunc);
+    myfile.open("cliente.txt",std::ios::out|std::ios::trunc);
     if(!myfile){
         std::cout<<"ERRO!";
     }else{
-        myfile<<napa<<"\n";
-        for(i=0;i<napa;i++){
-            myfile<<aux->nome<<"\n"<<aux->endereco<<"\n"<<aux->telefone<<"\n"<<aux->cpf<<"\n"<<aux->email<<"\n"<<aux->napa;
+        myfile<<ncli<<"\n";
+        for(i=0;i<ncli;i++){
+            myfile<<aux->nome<<"\n"<<aux->endereco<<"\n"<<aux->telefone<<"\n"<<aux->cpf<<"\n"<<aux->email<<"\n"<<aux->napa<<"\n";
             Apolice::salvar(&(aux->apolices), aux->napa);
             aux = aux->prox;
         }
@@ -62,7 +62,7 @@ int Cliente::carregar(listacli* p_l){
     std::fstream myfile;
     int ncli = 0, i;
     long local=0, parou=0, pacart;
-    myfile.open("cliente.bin",std::ios::in|std::ios::binary);
+    myfile.open("cliente.txt",std::ios::in);
     if(!myfile){
         //std::cout<<"ERRO!";
         return 0;
@@ -79,7 +79,7 @@ int Cliente::carregar(listacli* p_l){
             std::getline(myfile,aux->email);
             myfile>>aux->napa;
             parou = local;
-            local = Apolice::carregar(&(aux->apolices),(aux->napa),parou, &pacart);
+            local = Apolice::carregar(&(aux->apolices),(aux->napa),parou);
             cadastrar(p_l,aux);
             }
         
@@ -87,13 +87,17 @@ int Cliente::carregar(listacli* p_l){
     }
     
     myfile.close();
-    if(remove("cliente.bin")!=0){
+    if(remove("cliente.txt")!=0){
         perror("ERRO!");
     }
     
     myfile.close();
-    if(remove("apolice.bin") !=0){
+    if(remove("apolice.txt") !=0){
        perror("ERRO!"); 
+    }
+    
+    if(remove("sinistro.txt") !=0){
+        perror("ERRO!");
     }
     return ncli;
 }
@@ -157,3 +161,27 @@ Apolice::listanapa Cliente::getApolices() const {
     return apolices;
 }
 
+void Cliente::setNapa(int napa) {
+    this->napa = napa;
+}
+
+int Cliente::getNapa() const {
+    return napa;
+}
+
+void Cliente::novAp(Apolice *a){
+    this->napa = this->napa + 1;
+    cadastrar(&(this->apolices),a);
+}
+
+Cliente* Cliente::retPon(listacli* l, std::string* nome){
+    Cliente *aux = *l;
+    while(aux != NULL){
+        if(aux->nome == *nome){
+            *nome = "0";
+            return aux;
+        }
+        aux = aux->prox;
+    }
+    return NULL;
+}
