@@ -91,7 +91,7 @@ void Condutor::pesquisar(ListaCond *l, std::string *nome){
 
 void Condutor::excluir(ListaCond* l){
     std::string pesq;
-    std::cout<<"Nome do cliente: ";
+    std::cout<<"Nome do condutor: ";
     std::cin.clear(); //esse método e o de baixo servem para limpar o buffer de entrada
     std::cin.ignore(INT_MAX,'\n');
     std::getline(std::cin,pesq);
@@ -114,3 +114,5 @@ Condutor * Condutor::bucar(std::string *nome, ListaCond *lCond){
         aux = aux->prox;
     }
 }
+
+

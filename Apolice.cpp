@@ -114,3 +114,37 @@ void Apolice::novoCondutor(Condutor::ListaCond* c){
     ca = new Condutor();
     this->ncond++;
 }
+
+int Apolice::excluir(listanapa* p){
+    int n;
+    std::cout<<"Numero da apolice";
+    std::cin>>n;
+    Apolice *c = *p;
+    while(c!=NULL){
+        if(c->num==n){
+            deletar(p,c);
+            return 1;
+        }
+        c = c->prox;
+    }
+    return 0;
+}
+
+Apolice* Apolice::pesquisar(listanapa* l, int n){
+    Apolice *aux = *l;
+    while(aux!=NULL){
+        if(aux->num==n){
+            return aux;
+        }
+        aux = aux->prox;
+    }
+    return NULL;
+}
+
+Condutor::ListaCond Apolice::getLCond() const {
+    return lCond;
+}
+
+Sinistro::ListaSin Apolice::getLSin() const {
+    return lSin;
+}

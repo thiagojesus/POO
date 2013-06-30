@@ -22,6 +22,7 @@ public:
     virtual ~Condutor();
     
     Condutor *bucar(std::string *nome, ListaCond *lCond);
+    static void excluir(ListaCond *c);
     
     void SetIdade(int idade);
     int GetIdade() const;
@@ -37,7 +38,6 @@ public:
     
     void imprimir();
     void pesquisar(ListaCond *l, std::string *nome); //metodo que busca um cliente por nome
-   static void excluir(ListaCond *l); //metodo que exclui um cliente da lista
     
 private:
     std::string nome;

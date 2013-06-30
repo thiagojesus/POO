@@ -168,3 +168,13 @@ long Sinistro::carregar(ListaSin* p, int nsin, long parou){
     }  
 }
 
+void Sinistro::excluir(ListaSin* p, int _id){
+    Sinistro *aux = *p;
+    while(aux != NULL){
+        if(aux->id == _id){
+            deletar(p,aux);
+        }
+        aux = aux->prox;
+    }
+}
+

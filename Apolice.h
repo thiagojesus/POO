@@ -24,6 +24,10 @@ public:
     Apolice* prox; //ponteiro para manipulacao da lista
     static void salvar(listanapa *p, int napa); //metodo que salva os dados em um txt
     static long carregar(listanapa *p, int napa, long parou); //metodo que recupera os dados de um txt
+    static int excluir(listanapa *p);
+    static Apolice* pesquisar(listanapa *l, int n);
+    Condutor::ListaCond getLCond() const;
+    Sinistro::ListaSin getLSin() const;
 private:
     int num;
     Data vigencia;

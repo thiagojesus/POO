@@ -31,6 +31,7 @@ public:
     virtual ~Sinistro();
     static void salvar(ListaSin *p, int nsin); //metodo que salva os dados em um txt
     static long carregar(ListaSin* p, int nsin, long parou); //metodo que recupera os dados de um txt
+    static void excluir(ListaSin *p,int _id);
 private:
     int id;
     Data data;

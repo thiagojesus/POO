@@ -21,7 +21,7 @@ int main(int argc, char** argv) {
     Cliente *c; //ponteiro para instanciar os clientes
     Apolice *a; //ponteiro para instanciar as apolices
     int ncli; //numero de clientes
-    int op; //opcao do menu
+    int op, n; //opcao do menu
     string pesquisa; //string para guardar o termo de pesquisa
     inicLista(&lcliente);
     ncli = Cliente::carregar(&lcliente);
@@ -65,7 +65,7 @@ int main(int argc, char** argv) {
                 cin >> op;
                 switch (op) {
                     case 1: cout << "Pesquisar cliente por:\n";
-                        cout << "1- nome\n2- telefone\n3- voltar ao menu inicial";
+                        cout << "1- nome\n2- CPF\n3- voltar ao menu inicial";
                         cout << "\n Sua Opcao:";
                         cin >> op;
                         switch (op) {
@@ -129,11 +129,41 @@ int main(int argc, char** argv) {
                 switch (op) {
                     case 1: Cliente::excluir(&lcliente);
                         break;
-                    case 2: //TODO: remover cliente, criar apolice, adicionar veiculos e condutores
+                    case 2: std::cin.clear(); //esse método e o de baixo servem para limpar o buffer de entrada
+                            std::cin.ignore(INT_MAX, '\n');
+                            cout<<"Nome do cliente:";
+                            getline(cin,pesquisa);
+                            c = Cliente::retPon(&lcliente,&pesquisa);
+                            if(!Apolice::excluir(&(c->getApolices()))){
+                               cout<<"registro nao encontrado"; 
+                            }
                         break;
-                    case 3: //TODO: remover a apolice do cliente e criar um sinistro
+                    case 3: std::cin.clear(); //esse método e o de baixo servem para limpar o buffer de entrada
+                            std::cin.ignore(INT_MAX, '\n');
+                            cout<<"Nome do cliente:";
+                            getline(cin,pesquisa);
+                            c = Cliente::retPon(&lcliente,&pesquisa);
+                            if(c!=NULL){
+                                a = Apolice::pesquisar(&(c->getApolices()),n);
+                                if(a!=NULL){
+                                    cout<<"id do sinistro";
+                                    cin>>n;
+                                    Sinistro::excluir(&(a->getLSin()),n);
+                                }
+                            }
+                            
                         break;
-                    case 4: //TODO: remover a apolice do cliente e criar um veiculo
+                    case 4: std::cin.clear(); //esse método e o de baixo servem para limpar o buffer de entrada
+                            std::cin.ignore(INT_MAX, '\n');
+                            cout<<"Nome do cliente:";
+                            getline(cin,pesquisa);
+                            c = Cliente::retPon(&lcliente,&pesquisa);
+                            if(c!=NULL){
+                                a = Apolice::pesquisar(&(c->getApolices()),n);
+                                if(a!=NULL){
+                                    Condutor::excluir(&(a->getLCond()));
+                                }
+                            }
                         break;
                     case 5: op = 0;
                         break;
