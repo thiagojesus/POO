@@ -18,6 +18,9 @@ using namespace std;
  */
 int main(int argc, char** argv) {
     Cliente::listacli lcliente; //lista de clientes
+    Apolice::listanapa la;
+    Sinistro::ListaSin ls;
+    Condutor::ListaCond lc;
     Cliente *c; //ponteiro para instanciar os clientes
     Apolice *a; //ponteiro para instanciar as apolices
     int ncli; //numero de clientes
@@ -134,7 +137,8 @@ int main(int argc, char** argv) {
                             cout<<"Nome do cliente:";
                             getline(cin,pesquisa);
                             c = Cliente::retPon(&lcliente,&pesquisa);
-                            if(!Apolice::excluir(&(c->getApolices()))){
+                            la = c->getApolices();
+                            if(!Apolice::excluir(&(la))){
                                cout<<"registro nao encontrado"; 
                             }
                         break;
@@ -144,11 +148,13 @@ int main(int argc, char** argv) {
                             getline(cin,pesquisa);
                             c = Cliente::retPon(&lcliente,&pesquisa);
                             if(c!=NULL){
-                                a = Apolice::pesquisar(&(c->getApolices()),n);
+                                la = c->getApolices();
+                                a = Apolice::pesquisar(&(la),n);
                                 if(a!=NULL){
                                     cout<<"id do sinistro";
                                     cin>>n;
-                                    Sinistro::excluir(&(a->getLSin()),n);
+                                    ls = a->getLSin();
+                                    Sinistro::excluir(&(ls),n);
                                 }
                             }
                             
@@ -159,9 +165,11 @@ int main(int argc, char** argv) {
                             getline(cin,pesquisa);
                             c = Cliente::retPon(&lcliente,&pesquisa);
                             if(c!=NULL){
-                                a = Apolice::pesquisar(&(c->getApolices()),n);
+                                la = c->getApolices();
+                                a = Apolice::pesquisar(&(la),n);
                                 if(a!=NULL){
-                                    Condutor::excluir(&(a->getLCond()));
+                                    lc = a->getLCond();
+                                    Condutor::excluir(&(lc));
                                 }
                             }
                         break;
